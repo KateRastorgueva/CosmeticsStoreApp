@@ -52,22 +52,30 @@ namespace CosmeticsStoreApp
             FormEmployee.Instance.ShowForm();
         }
 
-        private void продажиToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Форма для продаж будет создана позже");
-        }
+
         private void товарыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormProduct.Instance.ShowForm();
         }
+
         private void покупателиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Форма для покупателей будет создана позже");
+            FormCustomer.Instance.ShowForm();
         }
 
         private void поставщикиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Форма для поставщиков будет создана позже");
+            FormSupplier.Instance.ShowForm();
+        }
+
+        private void продажиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormSale.Instance.ShowForm();
+        }
+
+        private void поставилBindingSource_Click(object sender, EventArgs e)
+        {
+            FormSupply.Instance.ShowForm();
         }
     }
 }

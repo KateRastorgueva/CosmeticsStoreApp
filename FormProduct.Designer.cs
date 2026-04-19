@@ -36,9 +36,9 @@
             System.Windows.Forms.Label срок_годностиLabel;
             System.Windows.Forms.Label описаниеLabel;
             System.Windows.Forms.Label акционныйLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             System.Windows.Forms.Label категорияLabel;
             System.Windows.Forms.Label фотоLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             this.cosmeticsStoreDataSet = new CosmeticsStoreApp.CosmeticsStoreDataSet();
             this.товарBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.товарTableAdapter = new CosmeticsStoreApp.CosmeticsStoreDataSetTableAdapters.ТоварTableAdapter();
@@ -145,6 +145,24 @@
             акционныйLabel.Size = new System.Drawing.Size(97, 20);
             акционныйLabel.TabIndex = 15;
             акционныйLabel.Text = "Акционный:";
+            // 
+            // категорияLabel
+            // 
+            категорияLabel.AutoSize = true;
+            категорияLabel.Location = new System.Drawing.Point(281, 349);
+            категорияLabel.Name = "категорияLabel";
+            категорияLabel.Size = new System.Drawing.Size(93, 20);
+            категорияLabel.TabIndex = 16;
+            категорияLabel.Text = "Категория:";
+            // 
+            // фотоLabel
+            // 
+            фотоLabel.AutoSize = true;
+            фотоLabel.Location = new System.Drawing.Point(12, 69);
+            фотоLabel.Name = "фотоLabel";
+            фотоLabel.Size = new System.Drawing.Size(55, 20);
+            фотоLabel.TabIndex = 17;
+            фотоLabel.Text = "Фото:";
             // 
             // cosmeticsStoreDataSet
             // 
@@ -356,15 +374,6 @@
             this.акционныйCheckBox.Text = "checkBox1";
             this.акционныйCheckBox.UseVisualStyleBackColor = true;
             // 
-            // категорияLabel
-            // 
-            категорияLabel.AutoSize = true;
-            категорияLabel.Location = new System.Drawing.Point(281, 349);
-            категорияLabel.Name = "категорияLabel";
-            категорияLabel.Size = new System.Drawing.Size(93, 20);
-            категорияLabel.TabIndex = 16;
-            категорияLabel.Text = "Категория:";
-            // 
             // категорияComboBox
             // 
             this.категорияComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Категория", true));
@@ -374,21 +383,13 @@
             this.категорияComboBox.Size = new System.Drawing.Size(200, 28);
             this.категорияComboBox.TabIndex = 17;
             // 
-            // фотоLabel
-            // 
-            фотоLabel.AutoSize = true;
-            фотоLabel.Location = new System.Drawing.Point(46, 194);
-            фотоLabel.Name = "фотоLabel";
-            фотоLabel.Size = new System.Drawing.Size(55, 20);
-            фотоLabel.TabIndex = 17;
-            фотоLabel.Text = "Фото:";
-            // 
             // фотоPictureBox
             // 
             this.фотоPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.товарBindingSource, "Фото", true));
-            this.фотоPictureBox.Location = new System.Drawing.Point(107, 194);
+            this.фотоPictureBox.Location = new System.Drawing.Point(73, 59);
             this.фотоPictureBox.Name = "фотоPictureBox";
-            this.фотоPictureBox.Size = new System.Drawing.Size(100, 50);
+            this.фотоPictureBox.Size = new System.Drawing.Size(134, 185);
+            this.фотоPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.фотоPictureBox.TabIndex = 18;
             this.фотоPictureBox.TabStop = false;
             // 

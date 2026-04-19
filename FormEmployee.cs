@@ -51,5 +51,10 @@ namespace CosmeticsStoreApp
         {
 
         }
+
+        private void сотрудникDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
