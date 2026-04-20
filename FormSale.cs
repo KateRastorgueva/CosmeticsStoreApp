@@ -49,5 +49,10 @@ namespace CosmeticsStoreApp
             this.продажаTableAdapter.Fill(this.cosmeticsStoreDataSet.Продажа);
 
         }
+
+        private void продажаDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

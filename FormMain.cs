@@ -77,5 +77,10 @@ namespace CosmeticsStoreApp
         {
             FormSupply.Instance.ShowForm();
         }
+
+        private void операцияStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormOperation.Instance.ShowForm();
+        }
     }
 }

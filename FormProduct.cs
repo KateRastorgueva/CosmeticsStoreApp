@@ -37,10 +37,17 @@ namespace CosmeticsStoreApp
 
         private void товарBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.товарBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cosmeticsStoreDataSet);
-
+            try
+            {
+                this.Validate();
+                this.товарBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.cosmeticsStoreDataSet);
+                MessageBox.Show("Данные сохранены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ошибка при сохранении: " + err.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FormProduct_Load(object sender, EventArgs e)
@@ -56,6 +63,11 @@ namespace CosmeticsStoreApp
             {
                 фотоPictureBox.Image = new Bitmap(openFileDialogPhoto.FileName);
             }
+        }
+
+        private void номерTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

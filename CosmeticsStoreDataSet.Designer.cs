@@ -61,6 +61,7 @@ namespace CosmeticsStoreApp {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -72,6 +73,9 @@ namespace CosmeticsStoreApp {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -110,6 +114,7 @@ namespace CosmeticsStoreApp {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -231,6 +236,7 @@ namespace CosmeticsStoreApp {
         public override global::System.Data.DataSet Clone() {
             CosmeticsStoreDataSet cln = ((CosmeticsStoreDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -374,11 +380,11 @@ namespace CosmeticsStoreApp {
             base.Tables.Add(this.tableПоставил);
             this.tableПоставщик = new ПоставщикDataTable();
             base.Tables.Add(this.tableПоставщик);
-            this.tableПродажа = new ПродажаDataTable();
+            this.tableПродажа = new ПродажаDataTable(false);
             base.Tables.Add(this.tableПродажа);
             this.tableСотрудник = new СотрудникDataTable();
             base.Tables.Add(this.tableСотрудник);
-            this.tableТовар = new ТоварDataTable();
+            this.tableТовар = new ТоварDataTable(false);
             base.Tables.Add(this.tableТовар);
             this.relationFK__Операция__ID_пок__37A5467C = new global::System.Data.DataRelation("FK__Операция__ID_пок__37A5467C", new global::System.Data.DataColumn[] {
                         this.tableПокупатель.ID_покупателяColumn}, new global::System.Data.DataColumn[] {
@@ -501,6 +507,13 @@ namespace CosmeticsStoreApp {
             }
             xs.Add(dsSchema);
             return type;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitExpressions() {
+            this.Продажа.Название_товараColumn.Expression = "Parent(FK__Продажа__Номер_т__3C69FB99).Название";
+            this.Товар.Товар_инфоColumn.Expression = "Название + \' (\' + Производитель + \')\'";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1695,12 +1708,23 @@ namespace CosmeticsStoreApp {
             
             private global::System.Data.DataColumn columnНомер_товара;
             
+            private global::System.Data.DataColumn columnНазвание_товара;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ПродажаDataTable() {
+            public ПродажаDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ПродажаDataTable(bool initExpressions) {
                 this.TableName = "Продажа";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1746,6 +1770,14 @@ namespace CosmeticsStoreApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Название_товараColumn {
+                get {
+                    return this.columnНазвание_товара;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1781,9 +1813,29 @@ namespace CosmeticsStoreApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ПродажаRow AddПродажаRow(ОперацияRow parentОперацияRowByFK__Продажа__Номер_о__3B75D760, ТоварRow parentТоварRowByFK__Продажа__Номер_т__3C69FB99, string Название_товара) {
+                ПродажаRow rowПродажаRow = ((ПродажаRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        Название_товара};
+                if ((parentОперацияRowByFK__Продажа__Номер_о__3B75D760 != null)) {
+                    columnValuesArray[0] = parentОперацияRowByFK__Продажа__Номер_о__3B75D760[0];
+                }
+                if ((parentТоварRowByFK__Продажа__Номер_т__3C69FB99 != null)) {
+                    columnValuesArray[1] = parentТоварRowByFK__Продажа__Номер_т__3C69FB99[0];
+                }
+                rowПродажаRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowПродажаRow);
+                return rowПродажаRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ПродажаRow AddПродажаRow(ОперацияRow parentОперацияRowByFK__Продажа__Номер_о__3B75D760, ТоварRow parentТоварRowByFK__Продажа__Номер_т__3C69FB99) {
                 ПродажаRow rowПродажаRow = ((ПродажаRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         null,
                         null};
                 if ((parentОперацияRowByFK__Продажа__Номер_о__3B75D760 != null)) {
@@ -1824,6 +1876,7 @@ namespace CosmeticsStoreApp {
             internal void InitVars() {
                 this.columnНомер_операции = base.Columns["Номер_операции"];
                 this.columnНомер_товара = base.Columns["Номер_товара"];
+                this.columnНазвание_товара = base.Columns["Название_товара"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1833,11 +1886,14 @@ namespace CosmeticsStoreApp {
                 base.Columns.Add(this.columnНомер_операции);
                 this.columnНомер_товара = new global::System.Data.DataColumn("Номер_товара", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnНомер_товара);
+                this.columnНазвание_товара = new global::System.Data.DataColumn("Название_товара", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНазвание_товара);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомер_операции,
                                 this.columnНомер_товара}, true));
                 this.columnНомер_операции.AllowDBNull = false;
                 this.columnНомер_товара.AllowDBNull = false;
+                this.columnНазвание_товара.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1856,6 +1912,12 @@ namespace CosmeticsStoreApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ПродажаRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.Название_товараColumn.Expression = "Parent(FK__Продажа__Номер_т__3C69FB99).Название";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2280,12 +2342,23 @@ namespace CosmeticsStoreApp {
             
             private global::System.Data.DataColumn columnАкционный;
             
+            private global::System.Data.DataColumn columnТовар_инфо;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ТоварDataTable() {
+            public ТоварDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ТоварDataTable(bool initExpressions) {
                 this.TableName = "Товар";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -2387,6 +2460,14 @@ namespace CosmeticsStoreApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Товар_инфоColumn {
+                get {
+                    return this.columnТовар_инфо;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2422,6 +2503,26 @@ namespace CosmeticsStoreApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ТоварRow AddТоварRow(int Номер, string Название, decimal Цена, string Производитель, System.DateTime Срок_годности, byte[] Фото, string Описание, string Категория, bool Акционный, string Товар_инфо) {
+                ТоварRow rowТоварRow = ((ТоварRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Номер,
+                        Название,
+                        Цена,
+                        Производитель,
+                        Срок_годности,
+                        Фото,
+                        Описание,
+                        Категория,
+                        Акционный,
+                        Товар_инфо};
+                rowТоварRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowТоварRow);
+                return rowТоварRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ТоварRow AddТоварRow(int Номер, string Название, decimal Цена, string Производитель, System.DateTime Срок_годности, byte[] Фото, string Описание, string Категория, bool Акционный) {
                 ТоварRow rowТоварRow = ((ТоварRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -2433,7 +2534,8 @@ namespace CosmeticsStoreApp {
                         Фото,
                         Описание,
                         Категория,
-                        Акционный};
+                        Акционный,
+                        null};
                 rowТоварRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowТоварRow);
                 return rowТоварRow;
@@ -2472,6 +2574,7 @@ namespace CosmeticsStoreApp {
                 this.columnОписание = base.Columns["Описание"];
                 this.columnКатегория = base.Columns["Категория"];
                 this.columnАкционный = base.Columns["Акционный"];
+                this.columnТовар_инфо = base.Columns["Товар_инфо"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2495,6 +2598,8 @@ namespace CosmeticsStoreApp {
                 base.Columns.Add(this.columnКатегория);
                 this.columnАкционный = new global::System.Data.DataColumn("Акционный", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnАкционный);
+                this.columnТовар_инфо = new global::System.Data.DataColumn("Товар_инфо", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnТовар_инфо);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНомер}, true));
                 this.columnНомер.AllowDBNull = false;
@@ -2504,6 +2609,7 @@ namespace CosmeticsStoreApp {
                 this.columnПроизводитель.MaxLength = 100;
                 this.columnОписание.MaxLength = 2147483647;
                 this.columnКатегория.MaxLength = 50;
+                this.columnТовар_инфо.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2522,6 +2628,12 @@ namespace CosmeticsStoreApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ТоварRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.Товар_инфоColumn.Expression = "Название + \' (\' + Производитель + \')\'";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2994,6 +3106,22 @@ namespace CosmeticsStoreApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Название_товара {
+                get {
+                    try {
+                        return ((string)(this[this.tableПродажа.Название_товараColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Название_товара\' in table \'Продажа\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableПродажа.Название_товараColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ОперацияRow ОперацияRow {
                 get {
                     return ((ОперацияRow)(this.GetParentRow(this.Table.ParentRelations["FK__Продажа__Номер_о__3B75D760"])));
@@ -3012,6 +3140,18 @@ namespace CosmeticsStoreApp {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Продажа__Номер_т__3C69FB99"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsНазвание_товараNull() {
+                return this.IsNull(this.tableПродажа.Название_товараColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetНазвание_товараNull() {
+                this[this.tableПродажа.Название_товараColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3224,6 +3364,22 @@ namespace CosmeticsStoreApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Товар_инфо {
+                get {
+                    try {
+                        return ((string)(this[this.tableТовар.Товар_инфоColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Товар_инфо\' in table \'Товар\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableТовар.Товар_инфоColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsЦенаNull() {
                 return this.IsNull(this.tableТовар.ЦенаColumn);
             }
@@ -3304,6 +3460,18 @@ namespace CosmeticsStoreApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetАкционныйNull() {
                 this[this.tableТовар.АкционныйColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsТовар_инфоNull() {
+                return this.IsNull(this.tableТовар.Товар_инфоColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetТовар_инфоNull() {
+                this[this.tableТовар.Товар_инфоColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5144,7 +5312,7 @@ SELECT Номер_операции, Номер_товара FROM Продажа 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Номер_операции, Номер_товара FROM dbo.Продажа";
+            this._commandCollection[0].CommandText = "SELECT Номер_операции, Номер_товара FROM Продажа";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5167,7 +5335,7 @@ SELECT Номер_операции, Номер_товара FROM Продажа 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual CosmeticsStoreDataSet.ПродажаDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CosmeticsStoreDataSet.ПродажаDataTable dataTable = new CosmeticsStoreDataSet.ПродажаDataTable();
+            CosmeticsStoreDataSet.ПродажаDataTable dataTable = new CosmeticsStoreDataSet.ПродажаDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5876,7 +6044,7 @@ SELECT Номер, Название, Цена, Производитель, Ср�
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual CosmeticsStoreDataSet.ТоварDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            CosmeticsStoreDataSet.ТоварDataTable dataTable = new CosmeticsStoreDataSet.ТоварDataTable();
+            CosmeticsStoreDataSet.ТоварDataTable dataTable = new CosmeticsStoreDataSet.ТоварDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

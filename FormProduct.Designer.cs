@@ -38,6 +38,7 @@
             System.Windows.Forms.Label акционныйLabel;
             System.Windows.Forms.Label категорияLabel;
             System.Windows.Forms.Label фотоLabel;
+            System.Windows.Forms.Label товар_инфоLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             this.cosmeticsStoreDataSet = new CosmeticsStoreApp.CosmeticsStoreDataSet();
             this.товарBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -67,6 +68,7 @@
             this.фотоPictureBox = new System.Windows.Forms.PictureBox();
             this.btnLoadPhoto = new System.Windows.Forms.Button();
             this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
+            this.товар_инфоLabel1 = new System.Windows.Forms.Label();
             номерLabel = new System.Windows.Forms.Label();
             названиеLabel = new System.Windows.Forms.Label();
             ценаLabel = new System.Windows.Forms.Label();
@@ -76,6 +78,7 @@
             акционныйLabel = new System.Windows.Forms.Label();
             категорияLabel = new System.Windows.Forms.Label();
             фотоLabel = new System.Windows.Forms.Label();
+            товар_инфоLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cosmeticsStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.товарBindingNavigator)).BeginInit();
@@ -163,6 +166,15 @@
             фотоLabel.Size = new System.Drawing.Size(55, 20);
             фотоLabel.TabIndex = 17;
             фотоLabel.Text = "Фото:";
+            // 
+            // товар_инфоLabel
+            // 
+            товар_инфоLabel.AutoSize = true;
+            товар_инфоLabel.Location = new System.Drawing.Point(232, 69);
+            товар_инфоLabel.Name = "товар_инфоLabel";
+            товар_инфоLabel.Size = new System.Drawing.Size(104, 20);
+            товар_инфоLabel.TabIndex = 20;
+            товар_инфоLabel.Text = "Товар инфо:";
             // 
             // cosmeticsStoreDataSet
             // 
@@ -323,6 +335,7 @@
             this.номерTextBox.Name = "номерTextBox";
             this.номерTextBox.Size = new System.Drawing.Size(200, 26);
             this.номерTextBox.TabIndex = 2;
+            this.номерTextBox.TextChanged += new System.EventHandler(this.номерTextBox_TextChanged);
             // 
             // названиеTextBox
             // 
@@ -407,11 +420,22 @@
             // 
             this.openFileDialogPhoto.FileName = "openFileDialog1";
             // 
+            // товар_инфоLabel1
+            // 
+            this.товар_инфоLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Товар_инфо", true));
+            this.товар_инфоLabel1.Location = new System.Drawing.Point(342, 69);
+            this.товар_инфоLabel1.Name = "товар_инфоLabel1";
+            this.товар_инфоLabel1.Size = new System.Drawing.Size(228, 82);
+            this.товар_инфоLabel1.TabIndex = 21;
+            this.товар_инфоLabel1.Text = "label1";
+            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(товар_инфоLabel);
+            this.Controls.Add(this.товар_инфоLabel1);
             this.Controls.Add(this.btnLoadPhoto);
             this.Controls.Add(фотоLabel);
             this.Controls.Add(this.фотоPictureBox);
@@ -476,5 +500,6 @@
         private System.Windows.Forms.PictureBox фотоPictureBox;
         private System.Windows.Forms.Button btnLoadPhoto;
         private System.Windows.Forms.OpenFileDialog openFileDialogPhoto;
+        private System.Windows.Forms.Label товар_инфоLabel1;
     }
 }
