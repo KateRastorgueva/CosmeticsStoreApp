@@ -82,5 +82,10 @@ namespace CosmeticsStoreApp
         {
             FormOperation.Instance.ShowForm();
         }
+
+        private void запросыToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FormSQL.Instance.ShowForm();
+        }
     }
 }
