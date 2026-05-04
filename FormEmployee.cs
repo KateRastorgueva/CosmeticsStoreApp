@@ -56,5 +56,36 @@ namespace CosmeticsStoreApp
         {
 
         }
+        private void сотрудникDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = сотрудникDataGridView.Rows[e.RowIndex];
+
+                if (row.Cells["Должность"].Value != null)
+                {
+                    string должность = row.Cells["Должность"].Value.ToString();
+
+                    switch (должность)
+                    {
+                        case "Продавец":
+                            row.DefaultCellStyle.BackColor = Color.LightGreen;
+                            break;
+                        case "Старший продавец":
+                            row.DefaultCellStyle.BackColor = Color.LightBlue;
+                            break;
+                        case "Кассир":
+                            row.DefaultCellStyle.BackColor = Color.LightYellow;
+                            break;
+                        case "Администратор":
+                            row.DefaultCellStyle.BackColor = Color.Lavender;
+                            break;
+                        default:
+                            row.DefaultCellStyle.BackColor = Color.White;
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

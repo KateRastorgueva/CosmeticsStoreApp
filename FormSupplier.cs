@@ -1,17 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CosmeticsStoreApp
 {
     public partial class FormSupplier : Form
     {
+        private static FormSupplier _instance;
+
+        public static FormSupplier Instance
+        {
+            get
+            {
+                if (_instance == null || _instance.IsDisposed)
+                    _instance = new FormSupplier();
+                return _instance;
+            }
+        }
+
+        public void ShowForm()
+        {
+            Show();
+            Activate();
+        }
+
         public FormSupplier()
         {
             InitializeComponent();
@@ -19,41 +31,47 @@ namespace CosmeticsStoreApp
 
         private void поставщикBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.поставщикBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cosmeticsStoreDataSet);
-
+            try
+            {
+                this.Validate();
+                this.поставщикBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.cosmeticsStoreDataSet);
+                MessageBox.Show("Данные сохранены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ошибка: " + err.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FormSupplier_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cosmeticsStoreDataSet.Поставщик' table. You can move, or remove it, as needed.
             this.поставщикTableAdapter.Fill(this.cosmeticsStoreDataSet.Поставщик);
-
         }
 
-        private void поставщикDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void поставщикDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-
-        }
-            private static FormSupplier _instance;
-
-            public static FormSupplier Instance
+            if (e.RowIndex >= 0)
             {
-                get
+                DataGridViewRow row = поставщикDataGridView.Rows[e.RowIndex];
+                if (row.Cells["dataGridViewTextBoxColumn2"].Value != null)
                 {
-                    if (_instance == null || _instance.IsDisposed)
-                        _instance = new FormSupplier();
-                    return _instance;
+                    string название = row.Cells["dataGridViewTextBoxColumn2"].Value.ToString();
+
+                    if (название.Contains("ООО"))
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                    else if (название.Contains("ИП"))
+                        row.DefaultCellStyle.BackColor = Color.LightBlue;
+                    else if (название.Contains("ЗАО"))
+                        row.DefaultCellStyle.BackColor = Color.LightYellow;
+                    else
+                        row.DefaultCellStyle.BackColor = Color.White;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
                 }
             }
-
-            public void ShowForm()
-            {
-                Show();
-                Activate();
-            }
-
-        
+        }
     }
 }

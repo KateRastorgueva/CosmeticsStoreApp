@@ -40,5 +40,19 @@ namespace CosmeticsStoreApp
             this.покупательTableAdapter.Fill(this.cosmeticsStoreDataSet.Покупатель);
 
         }
+        private void покупательDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.RowIndex % 2 == 0)
+                {
+                    покупательDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightCyan;
+                }
+                else
+                {
+                    покупательDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+        }
     }
 }

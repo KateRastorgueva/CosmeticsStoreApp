@@ -384,7 +384,6 @@
             this.акционныйCheckBox.Name = "акционныйCheckBox";
             this.акционныйCheckBox.Size = new System.Drawing.Size(200, 24);
             this.акционныйCheckBox.TabIndex = 16;
-            this.акционныйCheckBox.Text = "checkBox1";
             this.акционныйCheckBox.UseVisualStyleBackColor = true;
             // 
             // категорияComboBox

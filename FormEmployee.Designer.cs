@@ -234,6 +234,7 @@
             this.сотрудникDataGridView.Size = new System.Drawing.Size(776, 366);
             this.сотрудникDataGridView.TabIndex = 1;
             this.сотрудникDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.сотрудникDataGridView_CellContentClick);
+            this.сотрудникDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.сотрудникDataGridView_CellFormatting);
             // 
             // dataGridViewTextBoxColumn1
             // 
