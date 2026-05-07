@@ -121,5 +121,10 @@ namespace CosmeticsStoreApp
                 операцияBindingSource.RemoveFilter();
             }
         }
+
+        private void продажаDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

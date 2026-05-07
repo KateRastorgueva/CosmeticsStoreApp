@@ -100,36 +100,70 @@ namespace CosmeticsStoreApp
         {
             if (radioButtonNonCorrelated.Checked)
             {
-                string sql = @"SELECT Номер, Название, Цена 
-                               FROM Товар 
-                               WHERE Цена > (SELECT AVG(Цена) FROM Товар)";
+                labelNumber.Text = "Номер товара:";
+                textBoxNumber.Clear();
+
+                string sql = @"SELECT Номер, Название, Количество_на_складе, Цена
+                       FROM Товар
+                       ORDER BY Номер";
                 dataGridViewSubquery.DataSource = FillDataGridView(sql);
             }
         }
 
         private void radioButtonCorrelated_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButtonCorrelated.Checked && !string.IsNullOrEmpty(textBoxNumber.Text))
+            if (radioButtonCorrelated.Checked)
             {
-                string sql = @"SELECT pr.Номер_операции, pr.Номер_товара, t.Название,
-                                      (SELECT ФИО FROM Сотрудник s 
-                                       WHERE s.Паспорт = o.Паспорт) AS Сотрудник
-                               FROM Продажа pr
-                               INNER JOIN Операция o ON pr.Номер_операции = o.Номер_операции
-                               INNER JOIN Товар t ON pr.Номер_товара = t.Номер
-                               WHERE pr.Номер_операции = @number";
-                dataGridViewSubquery.DataSource = FillDataGridViewParam(sql, "@number", textBoxNumber.Text);
+                labelNumber.Text = "Номер чека:";
+                textBoxNumber.Clear();
+
+                string sql = @"SELECT pr.Номер_операции, t.Название, t.Цена,
+                              s.ФИО AS Сотрудник
+                       FROM Продажа pr
+                       INNER JOIN Операция o ON pr.Номер_операции = o.Номер_операции
+                       INNER JOIN Сотрудник s ON o.Паспорт = s.Паспорт
+                       INNER JOIN Товар t ON pr.Номер_товара = t.Номер
+                       ORDER BY pr.Номер_операции";
+                dataGridViewSubquery.DataSource = FillDataGridView(sql);
             }
         }
 
         private void buttonSubquery_Click(object sender, EventArgs e)
         {
             if (radioButtonCorrelated.Checked)
-                radioButtonCorrelated_CheckedChanged(sender, e);
+            {
+                if (string.IsNullOrEmpty(textBoxNumber.Text))
+                {
+                    MessageBox.Show("Введите номер чека");
+                    return;
+                }
+
+                string sql = @"SELECT pr.Номер_операции, t.Название, t.Цена,
+                              s.ФИО AS Сотрудник
+                       FROM Продажа pr
+                       INNER JOIN Операция o ON pr.Номер_операции = o.Номер_операции
+                       INNER JOIN Сотрудник s ON o.Паспорт = s.Паспорт
+                       INNER JOIN Товар t ON pr.Номер_товара = t.Номер
+                       WHERE pr.Номер_операции = @number";
+                dataGridViewSubquery.DataSource = FillDataGridViewParam(sql, "@number", textBoxNumber.Text);
+            }
             else if (radioButtonNonCorrelated.Checked)
-                radioButtonNonCorrelated_CheckedChanged(sender, e);
+            {
+                if (string.IsNullOrEmpty(textBoxNumber.Text))
+                {
+                    MessageBox.Show("Введите номер товара");
+                    return;
+                }
+
+                string sql = @"SELECT Номер, Название, Количество_на_складе, Цена
+                       FROM Товар
+                       WHERE Номер = @number";
+                dataGridViewSubquery.DataSource = FillDataGridViewParam(sql, "@number", textBoxNumber.Text);
+            }
             else
+            {
                 MessageBox.Show("Выберите тип подзапроса");
+            }
         }
         private void radioButtonInsert_CheckedChanged(object sender, EventArgs e)
         {
@@ -275,6 +309,16 @@ namespace CosmeticsStoreApp
         private void buttonSelectProducts_Click(object sender, EventArgs e)
         {
             dataGridViewProducts.DataSource = FillDataGridView("SELECT Номер, Название, Цена, Производитель FROM Товар");
+        }
+
+        private void FormSQL_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxNumber_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

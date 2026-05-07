@@ -60,7 +60,7 @@ namespace CosmeticsStoreApp
 
         private void покупателиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCustomer.Instance.ShowForm();
+            MessageBox.Show("в разработке");
         }
 
         private void поставщикиToolStripMenuItem_Click(object sender, EventArgs e)

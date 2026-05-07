@@ -147,9 +147,9 @@
       <DependentUpon>CosmeticsStoreDataSet.xsd</DependentUpon>
     </None>
     <None Include="CosmeticsStoreDataSet.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>CosmeticsStoreDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="CosmeticsStoreDataSet.xss">
       <DependentUpon>CosmeticsStoreDataSet.xsd</DependentUpon>

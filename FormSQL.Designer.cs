@@ -275,28 +275,29 @@
             // 
             // textBoxNumber
             // 
-            this.textBoxNumber.Location = new System.Drawing.Point(140, 95);
+            this.textBoxNumber.Location = new System.Drawing.Point(161, 98);
             this.textBoxNumber.Name = "textBoxNumber";
             this.textBoxNumber.Size = new System.Drawing.Size(150, 26);
             this.textBoxNumber.TabIndex = 3;
+            this.textBoxNumber.TextChanged += new System.EventHandler(this.textBoxNumber_TextChanged);
             // 
             // labelNumber
             // 
             this.labelNumber.AutoSize = true;
-            this.labelNumber.Location = new System.Drawing.Point(15, 98);
+            this.labelNumber.Location = new System.Drawing.Point(15, 95);
             this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(102, 20);
+            this.labelNumber.Size = new System.Drawing.Size(63, 20);
             this.labelNumber.TabIndex = 2;
-            this.labelNumber.Text = "Номер чека:";
+            this.labelNumber.Text = "Номер:";
             // 
             // radioButtonNonCorrelated
             // 
             this.radioButtonNonCorrelated.AutoSize = true;
-            this.radioButtonNonCorrelated.Location = new System.Drawing.Point(19, 55);
+            this.radioButtonNonCorrelated.Location = new System.Drawing.Point(19, 65);
             this.radioButtonNonCorrelated.Name = "radioButtonNonCorrelated";
-            this.radioButtonNonCorrelated.Size = new System.Drawing.Size(399, 24);
+            this.radioButtonNonCorrelated.Size = new System.Drawing.Size(424, 24);
             this.radioButtonNonCorrelated.TabIndex = 1;
-            this.radioButtonNonCorrelated.Text = "Некоррелированный (товары дороже среднего)";
+            this.radioButtonNonCorrelated.Text = "Некоррелированный (Товары для срочной закупки)";
             this.radioButtonNonCorrelated.UseVisualStyleBackColor = true;
             this.radioButtonNonCorrelated.CheckedChanged += new System.EventHandler(this.radioButtonNonCorrelated_CheckedChanged);
             // 
@@ -305,9 +306,9 @@
             this.radioButtonCorrelated.AutoSize = true;
             this.radioButtonCorrelated.Location = new System.Drawing.Point(19, 25);
             this.radioButtonCorrelated.Name = "radioButtonCorrelated";
-            this.radioButtonCorrelated.Size = new System.Drawing.Size(258, 24);
+            this.radioButtonCorrelated.Size = new System.Drawing.Size(407, 44);
             this.radioButtonCorrelated.TabIndex = 0;
-            this.radioButtonCorrelated.Text = "Коррелированный подзапрос";
+            this.radioButtonCorrelated.Text = "Коррелированный подзапрос(Лучшие продавцы)\r\n\r\n";
             this.radioButtonCorrelated.UseVisualStyleBackColor = true;
             this.radioButtonCorrelated.CheckedChanged += new System.EventHandler(this.radioButtonCorrelated_CheckedChanged);
             // 
@@ -469,6 +470,7 @@
             this.Controls.Add(this.tabControlSQL);
             this.Name = "FormSQL";
             this.Text = "SQL Запросы";
+            this.Load += new System.EventHandler(this.FormSQL_Load);
             this.tabControlSQL.ResumeLayout(false);
             this.tabPagePrimer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelect)).EndInit();
