@@ -103,9 +103,9 @@ namespace CosmeticsStoreApp
                 labelNumber.Text = "Номер товара:";
                 textBoxNumber.Clear();
 
-                string sql = @"SELECT Номер, Название, Количество_на_складе, Цена
-                       FROM Товар
-                       ORDER BY Номер";
+                string sql = @"SELECT Номер, Название, Цена 
+FROM Товар 
+WHERE Цена > (SELECT AVG(Цена) FROM Товар)";
                 dataGridViewSubquery.DataSource = FillDataGridView(sql);
             }
         }
@@ -117,13 +117,11 @@ namespace CosmeticsStoreApp
                 labelNumber.Text = "Номер чека:";
                 textBoxNumber.Clear();
 
-                string sql = @"SELECT pr.Номер_операции, t.Название, t.Цена,
-                              s.ФИО AS Сотрудник
-                       FROM Продажа pr
-                       INNER JOIN Операция o ON pr.Номер_операции = o.Номер_операции
-                       INNER JOIN Сотрудник s ON o.Паспорт = s.Паспорт
-                       INNER JOIN Товар t ON pr.Номер_товара = t.Номер
-                       ORDER BY pr.Номер_операции";
+                string sql = @"SELECT s.ФИО, 
+       (SELECT COUNT(*) FROM Продажа pr
+        INNER JOIN Операция o ON pr.Номер_операции = o.Номер_операции
+        WHERE o.Паспорт = s.Паспорт) AS Количество_продаж
+FROM Сотрудник s";
                 dataGridViewSubquery.DataSource = FillDataGridView(sql);
             }
         }

@@ -68,7 +68,6 @@
             this.фотоPictureBox = new System.Windows.Forms.PictureBox();
             this.btnLoadPhoto = new System.Windows.Forms.Button();
             this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
-            this.товар_инфоLabel1 = new System.Windows.Forms.Label();
             номерLabel = new System.Windows.Forms.Label();
             названиеLabel = new System.Windows.Forms.Label();
             ценаLabel = new System.Windows.Forms.Label();
@@ -89,7 +88,7 @@
             // номерLabel
             // 
             номерLabel.AutoSize = true;
-            номерLabel.Location = new System.Drawing.Point(239, 159);
+            номерLabel.Location = new System.Drawing.Point(237, 112);
             номерLabel.Name = "номерLabel";
             номерLabel.Size = new System.Drawing.Size(63, 20);
             номерLabel.TabIndex = 1;
@@ -98,7 +97,7 @@
             // названиеLabel
             // 
             названиеLabel.AutoSize = true;
-            названиеLabel.Location = new System.Drawing.Point(239, 191);
+            названиеLabel.Location = new System.Drawing.Point(237, 144);
             названиеLabel.Name = "названиеLabel";
             названиеLabel.Size = new System.Drawing.Size(87, 20);
             названиеLabel.TabIndex = 3;
@@ -107,7 +106,7 @@
             // ценаLabel
             // 
             ценаLabel.AutoSize = true;
-            ценаLabel.Location = new System.Drawing.Point(239, 223);
+            ценаLabel.Location = new System.Drawing.Point(237, 176);
             ценаLabel.Name = "ценаLabel";
             ценаLabel.Size = new System.Drawing.Size(52, 20);
             ценаLabel.TabIndex = 5;
@@ -116,7 +115,7 @@
             // производительLabel
             // 
             производительLabel.AutoSize = true;
-            производительLabel.Location = new System.Drawing.Point(239, 255);
+            производительLabel.Location = new System.Drawing.Point(237, 208);
             производительLabel.Name = "производительLabel";
             производительLabel.Size = new System.Drawing.Size(135, 20);
             производительLabel.TabIndex = 7;
@@ -125,7 +124,7 @@
             // срок_годностиLabel
             // 
             срок_годностиLabel.AutoSize = true;
-            срок_годностиLabel.Location = new System.Drawing.Point(239, 288);
+            срок_годностиLabel.Location = new System.Drawing.Point(237, 241);
             срок_годностиLabel.Name = "срок_годностиLabel";
             срок_годностиLabel.Size = new System.Drawing.Size(125, 20);
             срок_годностиLabel.TabIndex = 9;
@@ -134,7 +133,7 @@
             // описаниеLabel
             // 
             описаниеLabel.AutoSize = true;
-            описаниеLabel.Location = new System.Drawing.Point(239, 319);
+            описаниеLabel.Location = new System.Drawing.Point(237, 272);
             описаниеLabel.Name = "описаниеLabel";
             описаниеLabel.Size = new System.Drawing.Size(87, 20);
             описаниеLabel.TabIndex = 11;
@@ -143,7 +142,7 @@
             // акционныйLabel
             // 
             акционныйLabel.AutoSize = true;
-            акционныйLabel.Location = new System.Drawing.Point(239, 385);
+            акционныйLabel.Location = new System.Drawing.Point(237, 338);
             акционныйLabel.Name = "акционныйLabel";
             акционныйLabel.Size = new System.Drawing.Size(97, 20);
             акционныйLabel.TabIndex = 15;
@@ -152,7 +151,7 @@
             // категорияLabel
             // 
             категорияLabel.AutoSize = true;
-            категорияLabel.Location = new System.Drawing.Point(281, 349);
+            категорияLabel.Location = new System.Drawing.Point(279, 302);
             категорияLabel.Name = "категорияLabel";
             категорияLabel.Size = new System.Drawing.Size(93, 20);
             категорияLabel.TabIndex = 16;
@@ -170,11 +169,10 @@
             // товар_инфоLabel
             // 
             товар_инфоLabel.AutoSize = true;
-            товар_инфоLabel.Location = new System.Drawing.Point(232, 69);
+            товар_инфоLabel.Location = new System.Drawing.Point(230, 22);
             товар_инфоLabel.Name = "товар_инфоLabel";
-            товар_инфоLabel.Size = new System.Drawing.Size(104, 20);
+            товар_инфоLabel.Size = new System.Drawing.Size(0, 20);
             товар_инфоLabel.TabIndex = 20;
-            товар_инфоLabel.Text = "Товар инфо:";
             // 
             // cosmeticsStoreDataSet
             // 
@@ -245,7 +243,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 33);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -255,7 +253,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -264,7 +262,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -273,13 +271,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 38);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -294,7 +292,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -302,7 +300,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -311,27 +309,27 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 38);
             // 
             // товарBindingNavigatorSaveItem
             // 
             this.товарBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.товарBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("товарBindingNavigatorSaveItem.Image")));
             this.товарBindingNavigatorSaveItem.Name = "товарBindingNavigatorSaveItem";
-            this.товарBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 28);
+            this.товарBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 33);
             this.товарBindingNavigatorSaveItem.Text = "Save Data";
             this.товарBindingNavigatorSaveItem.Click += new System.EventHandler(this.товарBindingNavigatorSaveItem_Click);
             // 
             // номерTextBox
             // 
             this.номерTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Номер", true));
-            this.номерTextBox.Location = new System.Drawing.Point(380, 156);
+            this.номерTextBox.Location = new System.Drawing.Point(378, 109);
             this.номерTextBox.Name = "номерTextBox";
             this.номерTextBox.Size = new System.Drawing.Size(200, 26);
             this.номерTextBox.TabIndex = 2;
@@ -340,7 +338,7 @@
             // названиеTextBox
             // 
             this.названиеTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Название", true));
-            this.названиеTextBox.Location = new System.Drawing.Point(380, 188);
+            this.названиеTextBox.Location = new System.Drawing.Point(378, 141);
             this.названиеTextBox.Name = "названиеTextBox";
             this.названиеTextBox.Size = new System.Drawing.Size(200, 26);
             this.названиеTextBox.TabIndex = 4;
@@ -348,7 +346,7 @@
             // ценаTextBox
             // 
             this.ценаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Цена", true));
-            this.ценаTextBox.Location = new System.Drawing.Point(380, 220);
+            this.ценаTextBox.Location = new System.Drawing.Point(378, 173);
             this.ценаTextBox.Name = "ценаTextBox";
             this.ценаTextBox.Size = new System.Drawing.Size(200, 26);
             this.ценаTextBox.TabIndex = 6;
@@ -356,7 +354,7 @@
             // производительTextBox
             // 
             this.производительTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Производитель", true));
-            this.производительTextBox.Location = new System.Drawing.Point(380, 252);
+            this.производительTextBox.Location = new System.Drawing.Point(378, 205);
             this.производительTextBox.Name = "производительTextBox";
             this.производительTextBox.Size = new System.Drawing.Size(200, 26);
             this.производительTextBox.TabIndex = 8;
@@ -364,7 +362,7 @@
             // срок_годностиDateTimePicker
             // 
             this.срок_годностиDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.товарBindingSource, "Срок_годности", true));
-            this.срок_годностиDateTimePicker.Location = new System.Drawing.Point(380, 284);
+            this.срок_годностиDateTimePicker.Location = new System.Drawing.Point(378, 237);
             this.срок_годностиDateTimePicker.Name = "срок_годностиDateTimePicker";
             this.срок_годностиDateTimePicker.Size = new System.Drawing.Size(200, 26);
             this.срок_годностиDateTimePicker.TabIndex = 10;
@@ -372,7 +370,7 @@
             // описаниеTextBox
             // 
             this.описаниеTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Описание", true));
-            this.описаниеTextBox.Location = new System.Drawing.Point(380, 316);
+            this.описаниеTextBox.Location = new System.Drawing.Point(378, 269);
             this.описаниеTextBox.Name = "описаниеTextBox";
             this.описаниеTextBox.Size = new System.Drawing.Size(200, 26);
             this.описаниеTextBox.TabIndex = 12;
@@ -380,7 +378,7 @@
             // акционныйCheckBox
             // 
             this.акционныйCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.товарBindingSource, "Акционный", true));
-            this.акционныйCheckBox.Location = new System.Drawing.Point(380, 380);
+            this.акционныйCheckBox.Location = new System.Drawing.Point(378, 333);
             this.акционныйCheckBox.Name = "акционныйCheckBox";
             this.акционныйCheckBox.Size = new System.Drawing.Size(200, 24);
             this.акционныйCheckBox.TabIndex = 16;
@@ -390,7 +388,7 @@
             // 
             this.категорияComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Категория", true));
             this.категорияComboBox.FormattingEnabled = true;
-            this.категорияComboBox.Location = new System.Drawing.Point(380, 346);
+            this.категорияComboBox.Location = new System.Drawing.Point(378, 299);
             this.категорияComboBox.Name = "категорияComboBox";
             this.категорияComboBox.Size = new System.Drawing.Size(200, 28);
             this.категорияComboBox.TabIndex = 17;
@@ -419,22 +417,12 @@
             // 
             this.openFileDialogPhoto.FileName = "openFileDialog1";
             // 
-            // товар_инфоLabel1
-            // 
-            this.товар_инфоLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.товарBindingSource, "Товар_инфо", true));
-            this.товар_инфоLabel1.Location = new System.Drawing.Point(342, 69);
-            this.товар_инфоLabel1.Name = "товар_инфоLabel1";
-            this.товар_инфоLabel1.Size = new System.Drawing.Size(228, 82);
-            this.товар_инфоLabel1.TabIndex = 21;
-            this.товар_инфоLabel1.Text = "label1";
-            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(товар_инфоLabel);
-            this.Controls.Add(this.товар_инфоLabel1);
             this.Controls.Add(this.btnLoadPhoto);
             this.Controls.Add(фотоLabel);
             this.Controls.Add(this.фотоPictureBox);
@@ -499,6 +487,5 @@
         private System.Windows.Forms.PictureBox фотоPictureBox;
         private System.Windows.Forms.Button btnLoadPhoto;
         private System.Windows.Forms.OpenFileDialog openFileDialogPhoto;
-        private System.Windows.Forms.Label товар_инфоLabel1;
     }
 }

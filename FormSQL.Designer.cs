@@ -295,9 +295,9 @@
             this.radioButtonNonCorrelated.AutoSize = true;
             this.radioButtonNonCorrelated.Location = new System.Drawing.Point(19, 65);
             this.radioButtonNonCorrelated.Name = "radioButtonNonCorrelated";
-            this.radioButtonNonCorrelated.Size = new System.Drawing.Size(424, 24);
+            this.radioButtonNonCorrelated.Size = new System.Drawing.Size(418, 24);
             this.radioButtonNonCorrelated.TabIndex = 1;
-            this.radioButtonNonCorrelated.Text = "Некоррелированный (Товары для срочной закупки)";
+            this.radioButtonNonCorrelated.Text = "Некоррелированный (Товары цены выше средней)";
             this.radioButtonNonCorrelated.UseVisualStyleBackColor = true;
             this.radioButtonNonCorrelated.CheckedChanged += new System.EventHandler(this.radioButtonNonCorrelated_CheckedChanged);
             // 

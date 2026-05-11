@@ -53,24 +53,24 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxGoods = new System.Windows.Forms.GroupBox();
+            this.продажаDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.продажаBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.продажаTableAdapter = new CosmeticsStoreApp.CosmeticsStoreDataSetTableAdapters.ПродажаTableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStripTextBoxFind = new System.Windows.Forms.TextBox();
             this.toolStripButtonFind = new System.Windows.Forms.Button();
             this.toolStripCheckBoxFilter = new System.Windows.Forms.CheckBox();
-            this.продажаDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cosmeticsStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.операцияBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.операцияBindingNavigator)).BeginInit();
             this.операцияBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.операцияDataGridView)).BeginInit();
             this.groupBoxGoods.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.продажаDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.продажаBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.продажаDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // cosmeticsStoreDataSet
@@ -287,6 +287,38 @@
             this.groupBoxGoods.TabStop = false;
             this.groupBoxGoods.Text = "Товары в чеке";
             // 
+            // продажаDataGridView
+            // 
+            this.продажаDataGridView.AutoGenerateColumns = false;
+            this.продажаDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.продажаDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.продажаDataGridView.DataSource = this.продажаBindingSource;
+            this.продажаDataGridView.Location = new System.Drawing.Point(0, 47);
+            this.продажаDataGridView.Name = "продажаDataGridView";
+            this.продажаDataGridView.RowHeadersWidth = 62;
+            this.продажаDataGridView.RowTemplate.Height = 28;
+            this.продажаDataGridView.Size = new System.Drawing.Size(882, 220);
+            this.продажаDataGridView.TabIndex = 0;
+            this.продажаDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.продажаDataGridView_CellClick);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Номер_операции";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Номер_операции";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Номер_товара";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Номер_товара";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
             // продажаBindingSource
             // 
             this.продажаBindingSource.DataMember = "FK__Продажа__Номер_о__3B75D760";
@@ -335,37 +367,6 @@
             this.toolStripCheckBoxFilter.UseVisualStyleBackColor = true;
             this.toolStripCheckBoxFilter.CheckedChanged += new System.EventHandler(this.toolStripCheckBoxFilter_CheckedChanged);
             // 
-            // продажаDataGridView
-            // 
-            this.продажаDataGridView.AutoGenerateColumns = false;
-            this.продажаDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.продажаDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.продажаDataGridView.DataSource = this.продажаBindingSource;
-            this.продажаDataGridView.Location = new System.Drawing.Point(0, 47);
-            this.продажаDataGridView.Name = "продажаDataGridView";
-            this.продажаDataGridView.RowHeadersWidth = 62;
-            this.продажаDataGridView.RowTemplate.Height = 28;
-            this.продажаDataGridView.Size = new System.Drawing.Size(882, 220);
-            this.продажаDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Номер_операции";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Номер_операции";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Номер_товара";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Номер_товара";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
             // FormOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -387,9 +388,9 @@
             this.операцияBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.операцияDataGridView)).EndInit();
             this.groupBoxGoods.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.продажаDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.продажаBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.продажаDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
